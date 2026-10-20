@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web Directory: Curated Sites for SEO, Design, Development and AI</title>
+<meta name="description" content="A curated directory of useful websites, each with a short description, grouped by category.">
+<!-- TODO: apna final URL likho -->
+<link rel="canonical" href="https://YOUR-USERNAME.github.io/YOUR-REPO/directory.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f1a33; --paper: #f4f6fa; --card: #fff; --line: #d9deea;
+    --muted: #55607a; --blue: #2f45f0; --tint: #e3e7ff;
+    --head: "Bricolage Grotesque", "Segoe UI", Arial, sans-serif;
+    --body: "Instrument Sans", "Segoe UI", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.6 var(--body); }
+  a { color: var(--blue); }
+  a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+  h1, h2, h3 { font-family: var(--head); line-height: 1.1; margin: 0; letter-spacing: -0.02em; }
+
+  nav { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; }
+  .brand { font: 800 1.25rem var(--head); color: var(--ink); text-decoration: none; }
+  nav a.back { color: var(--ink); text-decoration: none; font-weight: 500; font-size: .95rem; }
+
+  header.top { padding: 36px 0 28px; }
+  header.top h1 { font-size: clamp(2.3rem, 5.5vw, 3.8rem); font-weight: 800; }
+  header.top p { color: var(--muted); max-width: 36em; margin: 14px 0 0; font-size: 1.1rem; }
+
+  .tools { position: sticky; top: 0; background: var(--paper); padding: 14px 0; z-index: 5; border-bottom: 1px solid var(--line); }
+  .search { width: 100%; padding: 14px 18px; font: inherit; border: 1.5px solid var(--ink); border-radius: 10px; background: var(--card); color: var(--ink); }
+  .chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+  .chips button { font: 600 .9rem var(--body); padding: 7px 16px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--card); color: var(--ink); cursor: pointer; }
+  .chips button[aria-pressed="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .meta { color: var(--muted); font-size: .9rem; margin: 18px 0 0; }
+
+  /* listings: yahan sites add hoti hain */
+  .list { list-style: none; margin: 18px 0 60px; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .list li { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px; display: flex; flex-direction: column; gap: 6px; }
+  .list li[hidden] { display: none; }
+  .list .row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .list a.site { font: 700 1.15rem var(--head); text-decoration: none; }
+  .list a.site:hover { text-decoration: underline; }
+  .list .tag { font-size: .78rem; background: var(--tint); color: var(--blue); padding: 2px 10px; border-radius: 99px; font-weight: 600; white-space: nowrap; }
+  .list p { margin: 0; color: var(--muted); font-size: .96rem; }
+  .list .dom { font-size: .82rem; color: var(--muted); }
+  .empty { display: none; color: var(--muted); padding: 40px 0; }
+  @media (max-width: 760px) { .list { grid-template-columns: 1fr; } }
+
+  footer { padding: 28px 0; font-size: .88rem; color: var(--muted); border-top: 1px solid var(--line); }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav>
+    <a class="brand" href="index.html">Visibility Notes</a>
+    <a class="back" href="index.html">Back to home</a>
+  </nav>
+
+  <header class="top">
+    <h1>Web directory</h1>
+    <p>A hand-picked list of useful websites. Search by name or topic, or filter by category.</p>
+  </header>
+</div>
+
+<div class="tools">
+  <div class="wrap">
+    <input class="search" id="q" type="search" placeholder="Search sites..." aria-label="Search sites">
+    <div class="chips" id="chips">
+      <button type="button" data-cat="all" aria-pressed="true">All</button>
+      <button type="button" data-cat="SEO" aria-pressed="false">Social Platforms</button>
+      <button type="button" data-cat="Design" aria-pressed="false">Community Forums</button>
+      <button type="button" data-cat="Development" aria-pressed="false">Design Builders</button>
+      <button type="button" data-cat="AI" aria-pressed="false">Utilities</button>
+      <button type="button" data-cat="Marketing" aria-pressed="false">Marketing</button>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+  <p class="meta" id="meta"></p>
+
+  <ul class="list" id="list">
+    <!-- =========================================================
+         NAYI SITE ADD KARNE KA TAREEQA:
+         1. Neeche wali aik poori <li> ... </li> copy karo
+         2. Is comment ke FORAN NEECHAY paste karo
+         3. data-cat, URL, naam, tag aur description badlo
+         data-cat aur tag mai wohi category likho jo upar chips mai hai
+         (SEO, Design, Development, AI, Marketing). Nayi category
+         chahiye to upar chips mai aik <button> bhi add kar do.
+         ========================================================= -->
+
+    <li data-cat="Social Platforms">
+      <div class="row"><a class="site" href="https://undrtone.com/menaveed" target="_blank" rel="noopener">undrtone</a><span class="tag">Scial Platforms</span></div>
+      <span class="dom"></span>
+    </li>
+
+    <li data-cat="Community Forums">
+      <div class="row"><a class="site" href=https://etherscan.io/public-profile?uid=5ee7c8f6" target="_blank" rel="noopener">etherscan.io</a><span class="tag">Community Forum</span></div>
+      <span class="dom"></span>
+    </li>
+
+    <li data-cat="Design Builders">
+      <div class="row"><a class="site" href="https://smashingappscom.mypixieset.com/about/" target="_blank" rel="noopener">mypixieset</a><span class="tag">Design Builders</span></div>
+      <span class="dom"></span>
+    </li>
+
+    <li data-cat="Utilities">
+      <div class="row"><a class="site" href="https://pastebin.com/u/menaveed" target="_blank" rel="noopener">pastebin</a><span class="tag">Utilities</span></div>
+      <p>AI tool ya research site ka chhota taaruf.</p>
+      <span class="dom"></span>
+    </li>
+
+    <li data-cat="Marketing">
+      <div class="row"><a class="site" href="https://smashingapps-com.simplecast.com/" target="_blank" rel="noopener">simplecast</a><span class="tag">Marketing</span></div>
+      <span class="dom"></span>
+    </li>
+  </ul>
+
+  <p class="empty" id="empty">Not found, search something else.</p>
+</main>
+
+<footer>
+  <div class="wrap">&copy; 2026 Visibility Notes</div>
+</footer>
+
+<script>
+  (function () {
+    var items = Array.prototype.slice.call(document.querySelectorAll("#list li"));
+    var q = document.getElementById("q");
+    var chips = document.querySelectorAll("#chips button");
+    var meta = document.getElementById("meta");
+    var empty = document.getElementById("empty");
+    var cat = "all";
+
+    // domain ka naam khud bhar do
+    items.forEach(function (li) {
+      var a = li.querySelector("a.site"), d = li.querySelector(".dom");
+      if (a && d) { try { d.textContent = new URL(a.href).hostname.replace(/^www\./, ""); } catch (e) {} }
+    });
+
+    function apply() {
+      var term = q.value.trim().toLowerCase(), shown = 0;
+      items.forEach(function (li) {
+        var okCat = cat === "all" || li.getAttribute("data-cat") === cat;
+        var okTxt = !term || li.textContent.toLowerCase().indexOf(term) > -1;
+        li.hidden = !(okCat && okTxt);
+        if (!li.hidden) shown++;
+      });
+      meta.textContent = shown + (shown === 1 ? " site" : " sites");
+      empty.style.display = shown ? "none" : "block";
+    }
+
+    chips.forEach(function (b) {
+      b.addEventListener("click", function () {
+        chips.forEach(function (x) { x.setAttribute("aria-pressed", "false"); });
+        b.setAttribute("aria-pressed", "true");
+        cat = b.getAttribute("data-cat");
+        apply();
+      });
+    });
+    q.addEventListener("input", apply);
+    apply();
+  })();
+</script>
+</body>
+</html>
