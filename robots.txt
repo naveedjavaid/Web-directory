@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://naveedjavaid.github.io/Web-directory/sitemap.xml

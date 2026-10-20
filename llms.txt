@@ -1,0 +1,18 @@
+# Web Directory
+
+> A curated web directory with a growing collection of free, browser-based online tools published by SmashingApps.com. The tools cover SEO and marketing, image and PDF work, developer and design tasks, productivity and everyday utilities. The tools are free to use and do not require an account.
+
+## Main pages
+
+- [Web Directory](https://naveedjavaid.github.io/Web-directory/): Curated websites grouped by category, searchable by name or topic.
+- [Free Online Tools Directory](https://naveedjavaid.github.io/Web-directory/online-tools.html): Browse and search all free tools by category, each linking to its page on SmashingApps.com.
+
+## Publisher
+
+- [SmashingApps.com](https://www.smashingapps.com/): Technology and design blog covering software, AI tools, productivity and cyber security.
+- [Free Online Tools on SmashingApps.com](https://www.smashingapps.com/free-online-tools/): The full, always-current list of tools.
+
+## Optional
+
+- [Contact](https://www.smashingapps.com/contact-us/)
+- [Privacy Policy](https://www.smashingapps.com/privacy-policy/)
